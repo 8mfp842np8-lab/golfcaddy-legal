@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutzerklärung — SmartCaddie</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; max-width: 720px;
+         margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #1c1c1e; }
+  h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+  th, td { border: 1px solid #d1d1d6; padding: .5rem; text-align: left; vertical-align: top; }
+  th { background: #f2f2f7; }
+  .stand { color: #6e6e73; font-size: .85rem; }
+</style>
+</head>
+<body>
+<h1>Datenschutzerklärung für die App „SmartCaddie“</h1>
+<p class="stand">Stand: 15. Juli 2026 · Gültig für die iOS- und watchOS-App „SmartCaddie“ (Beta/TestFlight)</p>
+
+<h2>1. Verantwortlicher</h2>
+<p>Rouven Piontek<br>E-Mail: rouven92@gmail.com</p>
+
+<h2>2. Grundprinzip: lokal zuerst</h2>
+<p>SmartCaddie ist eine „Local-first“-App: Runden, Scores, Schläge, Schläger-Daten und
+Handicap-Berechnungen werden auf deinem Gerät gespeichert. Ohne verknüpftes Cloud-Konto
+werden keine Spielerdaten an uns übertragen. Nach einer bewussten Konto-Verknüpfung
+werden beendete Runden automatisch synchronisiert; ein manueller Sync bleibt möglich.
+Die App enthält kein Werbe-Tracking, keine Analyse-SDKs von Drittanbietern und gibt
+keine Daten zu Werbezwecken weiter.</p>
+
+<h2>3. Welche Daten zu welchem Zweck verarbeitet werden</h2>
+<table>
+<tr><th>Daten</th><th>Zweck</th><th>Wo</th><th>Rechtsgrundlage</th></tr>
+<tr><td>Standortdaten (GPS), während der Nutzung</td>
+    <td>Distanzen zum Grün/zu Hindernissen, Schlag-Tracking, Loch-Erkennung</td>
+    <td>Verarbeitung auf dem Gerät; Speicherung lokal</td>
+    <td>Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung der App-Funktion)</td></tr>
+<tr><td>Gesundheitsdaten (Workout über Apple Health, nur Watch)</td>
+    <td>Golfrunde als Workout aufzeichnen, Watch-App aktiv halten</td>
+    <td>Ausschließlich in Apple Health auf deinen Geräten; kein Zugriff durch uns</td>
+    <td>Art. 9 Abs. 2 lit. a DSGVO (Einwilligung über iOS-Freigabedialog)</td></tr>
+<tr><td>Profil (Name, Heimatclub, Geschlecht, DGV-Handicap), Runden, Scores, Schläge inkl. GPS-Positionen, Loch-Notizen, Tee-Ratings</td>
+    <td>Optionales Cloud-Backup und Geräte-Synchronisation</td>
+    <td>Nur nach bewusster Verknüpfung über „Sign in with Apple“: automatisch nach Rundenende oder manuell; Supabase-Datenbank, Region EU (Frankfurt am Main)</td>
+    <td>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung, jederzeit widerruflich durch Löschung in der App)</td></tr>
+<tr><td>Anmeldedaten („Sign in with Apple“: anonymisierte Nutzer-ID, optional Name/E-Mail)</td>
+    <td>Zuordnung deiner Cloud-Daten zu deinem Konto</td>
+    <td>Supabase Auth (EU-Frankfurt); Session-Token nur im Geräte-Schlüsselbund</td>
+    <td>Art. 6 Abs. 1 lit. b DSGVO</td></tr>
+<tr><td>Koordinaten des Golfplatzes (keine Nutzerkennung)</td>
+    <td>Abruf von Platzdaten, Wetter und Geländehöhe</td>
+    <td>Anfragen an unser Backend (Supabase, EU), OpenStreetMap/Overpass, Open-Meteo</td>
+    <td>Art. 6 Abs. 1 lit. b DSGVO</td></tr>
+<tr><td>Meldungen zu fehlerhaften Platzdaten (Kategorie, Freitext, optional deine Position)</td>
+    <td>Korrektur der zentralen Platzdaten</td>
+    <td>Supabase (EU-Frankfurt), ohne Nutzerkennung; Position nur bei aktivem Opt-in</td>
+    <td>Art. 6 Abs. 1 lit. a DSGVO</td></tr>
+<tr><td>Community-Funktionen (optional): öffentliches Profil (Benutzername mit @, Anzeigename, Heimatclub, optional Handicap), veröffentlichte Runden-Posts (Scorecard, Auswertung), Follows, Reaktionen, Kommentare, Mitspieler-Markierungen und Aktivitäts-Inbox</td>
+    <td>Freiwillige soziale Nutzung („Strava für Golf“) — nur, wenn du dein Profil aktiv veröffentlichst und Inhalte bewusst teilst</td>
+    <td>Supabase (EU-Frankfurt). Sichtbarkeit je Post wählbar (öffentlich / nur Follower / privat); Social-Inhalte sind nur für angemeldete Nutzer sichtbar; blockierte Konten sehen sich gegenseitig nicht</td>
+    <td>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung je Funktion, widerruflich: Profil abschalten und Posts dabei privatisieren oder löschen, einzelnen Post zurückziehen, Konto löschen)</td></tr>
+<tr><td>Live-Scoring im Flight (optional): Anzeigename, Course-Handicap und Löcher-Scores während einer gemeinsamen Runde</td>
+    <td>Gemeinsames Live-Leaderboard mit Mitspielern, Beitritt nur per Session-Code</td>
+    <td>Supabase (EU-Frankfurt); während der aktiven Session im Flight sichtbar. Nur der Host beendet die Session; danach sind Scores unveränderlich und fremde Scorecards können nur durch andere Teilnehmer bestätigt werden</td>
+    <td>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</td></tr>
+<tr><td>Blockieren / Melden (Meldeziel, Grund und Bearbeitungsstatus; Meldungen ohne Kennung des Meldenden)</td>
+    <td>Schutz vor unerwünschten Kontakten und Meldung von Inhalten an die Moderation</td>
+    <td>Supabase (EU-Frankfurt); deine Blockliste ist nur für dich sichtbar</td>
+    <td>Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Sicherheit/Moderation)</td></tr>
+<tr><td>Optionale Beta-Nutzungsereignisse: Ereignistyp aus einer festen Liste, Kalendertag und App-Version; keine Namen, Benutzernamen, Plätze, Scores oder Standorte</td>
+    <td>Datensparsame Verbesserung der Beta, nur nach Aktivierung unter Profil → Daten &amp; Diagnose → „Beta verbessern“</td>
+    <td>Supabase (EU-Frankfurt); standardmäßig aus. Ereignisse enthalten keine Nutzer-ID. Nur zur Missbrauchsdrosselung besteht ein pseudonymer kontobezogener Schlüssel für höchstens zwei Tage</td>
+    <td>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung; Ausschalten stoppt jede weitere Übermittlung)</td></tr>
+<tr><td>Diagnose-Berichte (Absturz-/Leistungsdaten von iOS)</td>
+    <td>Fehlersuche in der Beta</td>
+    <td>Bleiben auf dem Gerät; Übermittlung nur, wenn du sie manuell teilst (z. B. per Mail)</td>
+    <td>Art. 6 Abs. 1 lit. a DSGVO</td></tr>
+</table>
+
+<h2>4. Empfänger und Auftragsverarbeiter</h2>
+<p><strong>Supabase Inc.</strong> betreibt unsere Datenbank- und Authentifizierungs-Infrastruktur
+als Auftragsverarbeiter (Art. 28 DSGVO, Data Processing Agreement). Die Daten liegen in der
+Region EU-Frankfurt. <strong>OpenStreetMap/Overpass</strong> und <strong>Open-Meteo</strong>
+erhalten ausschließlich Platz-Koordinaten ohne Personenbezug. <strong>Apple</strong> verarbeitet
+Daten im Rahmen von TestFlight, „Sign in with Apple“ und Apple Health nach eigenen
+Datenschutzbestimmungen. Eine Übermittlung in Drittländer außerhalb der EU findet durch uns
+nicht statt.</p>
+
+<h2>5. Speicherdauer</h2>
+<p>Lokale Daten verbleiben auf deinem Gerät, bis du sie oder die App löschst. Cloud-Daten
+speichern wir, bis du sie löschst — die Löschung von Cloud-Daten <em>und</em> Cloud-Konto
+ist direkt in der App möglich (Profil → „Cloud-Daten &amp; Cloud-Konto löschen“) und wirkt
+sofort und unwiderruflich. Die Löschung entfernt <em>alle</em> serverseitigen Daten
+inklusive der Community-Inhalte (öffentliches Profil, Posts, Follows, Reaktionen, Kommentare,
+Markierungen, Aktivitäts-Inbox, Blockliste, Live-Scoring) sowie das Konto selbst. Schlägt die Konto-Löschung technisch
+fehl, wird nichts halb gelöscht und du erhältst einen Fehlerhinweis (die Löschung bleibt
+dann wiederholbar). Beim Abschalten des öffentlichen Profils wählst du, ob deine
+Runden-Posts privat bleiben oder gelöscht werden; Follow-Verbindungen werden dabei
+entfernt. Einzelne Posts kannst du unabhängig davon zurückziehen. Erledigte oder verworfene
+Moderationsmeldungen werden nach spätestens 90 Tagen, offene Meldungen nach spätestens
+365 Tagen gelöscht; entfällt das Meldeziel, wird die Meldung sofort entfernt. Optionale
+Beta-Nutzungsereignisse werden nach spätestens 90 Tagen, technische Drossel-Schlüssel nach
+spätestens zwei Tagen gelöscht.</p>
+
+<h2>6. Deine Rechte</h2>
+<p>Du hast das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17),
+Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch
+(Art. 21 DSGVO) sowie das Recht, eine erteilte Einwilligung jederzeit mit Wirkung für die
+Zukunft zu widerrufen. Wende dich dazu an rouven92@gmail.com. Außerdem hast du das Recht
+auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde, z. B. der Landesbeauftragten für
+Datenschutz der Freien Hansestadt Bremen.</p>
+
+<h2>7. TestFlight (Beta)</h2>
+<p>Die Beta wird über Apple TestFlight verteilt. Apple erhebt dabei als eigenständiger
+Verantwortlicher technische Daten (z. B. Installationsstatus, optionale Crash-Berichte und
+von dir aktiv gesendetes TestFlight-Feedback) gemäß den
+<a href="https://www.apple.com/legal/privacy/">Datenschutzbestimmungen von Apple</a>.</p>
+
+<h2>8. Änderungen</h2>
+<p>Diese Erklärung wird bei funktionalen Änderungen der App aktualisiert; die jeweils
+aktuelle Fassung findest du unter dieser URL.</p>
+</body>
+</html>
