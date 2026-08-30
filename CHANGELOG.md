@@ -5,23 +5,18 @@ Alle nennenswerten Aenderungen an diesem Repository.
 ## [v1.0.0] - 2026-08-30
 
 ### Neu
-- **Kickbase MCP-Server** (`kickbase-mcp/`): MCP-Server ohne externe
-  Abhaengigkeiten fuer die inoffizielle Kickbase-API v4.
-  - 18 lesende Tools: Ligen, Kader, Budget, Transfermarkt, Liga-Wertung,
-    Aufstellung, Spielerdetails, Marktwertverlauf, Punkteverlauf,
-    Spielersuche, Bundesliga-Tabelle, Spielplan, Aktivitaeten-Feed,
-    Feld-Glossar und ein generischer `/v4/`-GET-Endpunkt.
-  - 5 schreibende Tools (Markt listen/entfernen, Gebot abgeben, Angebot
-    beantworten, Aufstellung speichern), standardmaessig deaktiviert und
-    erst mit `KICKBASE_ENABLE_WRITES=1` sichtbar.
-  - Login per E-Mail/Passwort oder fertigem Token, automatische
-    Token-Erneuerung bei HTTP 401, Selbst-Drosselung der Anfragen.
-  - Antworten enthalten die Rohdaten plus eine Legende der abgekuerzten
-    Feldnamen.
-- `.mcp.json`: Der Server wird von Claude Code in diesem Projekt automatisch
-  geladen.
-- GitHub-Actions-Workflow: Unit-Tests auf Python 3.10 und 3.12 sowie ein
-  Smoke-Test des MCP-Handshakes.
+- **Kickbase-MCP-Anbindung**: Claude kann ueber einen MCP-Server direkt auf
+  Kickbase zugreifen — Kader, Budget, Transfermarkt, Liga-Wertung,
+  Marktwertverlauf, Spielerstatistiken und Live-Daten (41 Tools).
+  - Eingebunden wird [torstendunkel/kickbase-api-mcp](https://github.com/torstendunkel/kickbase-api-mcp)
+    (MIT), gebaut auf dem offiziellen MCP-SDK.
+  - `scripts/setup-kickbase-mcp.sh` klont den Server nach `vendor/`,
+    installiert die Abhaengigkeiten und baut ihn; erneutes Ausfuehren
+    aktualisiert ihn.
+  - `.mcp.json` registriert den Server automatisch in diesem Projekt; der
+    Pfad laesst sich ueber `KICKBASE_MCP_SERVER` umbiegen.
+  - Einrichtung, Konfiguration und Hinweise zu den schreibenden Tools stehen
+    in `docs/kickbase-mcp.md`.
 
 ### Bestand
 - `datenschutz.html` (Datenschutzerklaerung SmartCaddie) bleibt unveraendert.

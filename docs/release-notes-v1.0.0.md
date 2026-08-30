@@ -1,26 +1,24 @@
-# v1.0.0 - Kickbase MCP-Server
+# v1.0.0 - Kickbase-MCP-Anbindung
 
+Claude kann jetzt direkt auf Kickbase zugreifen: Kader, Budget, Transfermarkt, Liga-Wertung, Marktwertverlauf, Spielerstatistiken und Live-Daten.
 
-Erste Version des MCP-Servers, mit dem Claude direkt auf Kickbase zugreifen kann: Kader, Budget, Transfermarkt, Liga-Wertung, Marktwertverlauf und Spielerstatistiken.
+### Was drin ist
 
-### Highlights
-
-- **Ohne Installation lauffaehig** - nur Python 3.10+ aus der Standardbibliothek, kein `pip install`, kein Build-Schritt.
-- **18 lesende Tools**: Ligen, Kader, Budget, Transfermarkt, Liga-Wertung, Aufstellung, Spielerdetails, Marktwert- und Punkteverlauf, Spielersuche, Bundesliga-Tabelle, Spielplan, Aktivitaeten-Feed, Feld-Glossar sowie ein generischer `/v4/`-GET-Endpunkt.
-- **5 schreibende Tools** (Spieler listen/entfernen, Gebot abgeben, Angebot beantworten, Aufstellung speichern) sind standardmaessig deaktiviert und erscheinen erst mit `KICKBASE_ENABLE_WRITES=1` in der Tool-Liste.
-- **Robuste Anmeldung**: Login per E-Mail/Passwort oder fertigem Token, automatische Token-Erneuerung bei HTTP 401, Selbst-Drosselung der Anfragen an die inoffizielle API.
-- **Lesbare Antworten**: Rohdaten bleiben unveraendert, dazu kommt eine Legende der abgekuerzten Feldnamen (`mv`, `pos`, `st` ...).
-- **48 Unit-Tests** ohne Netzwerkzugriff plus CI-Workflow mit Handshake-Smoke-Test auf Python 3.10 und 3.12.
+- Eingebunden wird der MCP-Server [torstendunkel/kickbase-api-mcp](https://github.com/torstendunkel/kickbase-api-mcp) (MIT-Lizenz) mit **41 Tools**, gebaut auf dem offiziellen MCP-SDK.
+- `scripts/setup-kickbase-mcp.sh` klont den Server nach `vendor/`, installiert die Abhaengigkeiten und baut ihn. Erneutes Ausfuehren aktualisiert ihn.
+- `.mcp.json` registriert den Server automatisch in diesem Projekt; ueber `KICKBASE_MCP_SERVER` laesst sich ein anderer Pfad setzen.
+- Doku unter [`docs/kickbase-mcp.md`](https://github.com/8mfp842np8-lab/golfcaddy-legal/blob/main/docs/kickbase-mcp.md).
 
 ### Einrichtung
 
 ```bash
+./scripts/setup-kickbase-mcp.sh
 export KICKBASE_EMAIL="deine@mail.de"
 export KICKBASE_PASSWORD="dein-passwort"
 ```
 
-Die mitgelieferte `.mcp.json` registriert den Server in diesem Projekt automatisch. Details in [`kickbase-mcp/README.md`](https://github.com/8mfp842np8-lab/golfcaddy-legal/blob/claude/kickbase-mcp-integration-gphul1/kickbase-mcp/README.md).
+### Hinweise
 
-### Hinweis
+11 der 41 Tools veraendern den Account. `kickbase_sell_player` und `kickbase_accept_offer` sind vom Autor des Servers bewusst hart abgeschaltet; `kickbase_place_offer` und `kickbase_fill_lineup` sind aktiv. Claude Code fragt vor jedem Tool-Aufruf nach.
 
-Kickbase bietet keine offizielle oeffentliche API. Der Server spricht mit den internen v4-Endpunkten, dokumentiert von der Community. Endpunkte koennen sich jederzeit aendern; zu viele Anfragen koennen zur Account-Sperre fuehren. Das Projekt steht in keiner Verbindung zur Kickbase GmbH.
+Kickbase bietet keine offizielle oeffentliche API. Der Server spricht mit den internen v4-Endpunkten; Endpunkte koennen sich jederzeit aendern, zu viele Anfragen koennen zur Account-Sperre fuehren. Keine Verbindung zur Kickbase GmbH.
