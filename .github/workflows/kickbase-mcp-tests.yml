@@ -1,0 +1,31 @@
+name: kickbase-mcp tests
+
+on:
+  push:
+    paths:
+      - "kickbase-mcp/**"
+      - ".github/workflows/kickbase-mcp-tests.yml"
+  pull_request:
+    paths:
+      - "kickbase-mcp/**"
+      - ".github/workflows/kickbase-mcp-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit-Tests
+        working-directory: kickbase-mcp
+        run: python -m unittest discover -s tests -t . -v
+      - name: Smoke-Test des MCP-Handshakes
+        run: |
+          printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \
+            '{"jsonrpc":"2.0","id":2,"method":"tools/list"}' \
+            | python kickbase-mcp/run_server.py | tee /dev/stderr | grep -q kickbase_squad

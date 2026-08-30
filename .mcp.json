@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "kickbase": {
+      "command": "python3",
+      "args": ["kickbase-mcp/run_server.py"],
+      "env": {
+        "KICKBASE_EMAIL": "${KICKBASE_EMAIL:-}",
+        "KICKBASE_PASSWORD": "${KICKBASE_PASSWORD:-}",
+        "KICKBASE_ENABLE_WRITES": "${KICKBASE_ENABLE_WRITES:-0}"
+      }
+    }
+  }
+}
